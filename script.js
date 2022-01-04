@@ -22,7 +22,8 @@ function callBookForm () {
 addNewBookBtn.addEventListener('click', callBookForm);
 
 function addBookToLibrary () {
-    console.log('aa');
+    addBookContainer.removeChild(form);
+    addBookContainer.appendChild(addNewBookBtn);
 }
 
 //This is big...
