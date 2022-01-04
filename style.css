@@ -1,0 +1,19 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+header, footer {
+    background-color: gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
