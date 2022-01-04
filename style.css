@@ -23,21 +23,23 @@ header, footer {
     justify-content: space-between;
     align-items: center;
     background-color: orange;
+    height: 800px;
 }
 
-.listBooks, .addBook {
-    background-color: black;
-    width: 200px;
-    height: 600px;
+.addBookContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
     padding: 16px;
+    border-radius: 16px 0 0 16px;
 }
 
-.displayBooks {
+.displayBookContainer {
     display: flex;
     justify-content: left;
     align-items: flex-start;
     flex-wrap: wrap;
-    width: 600px;
 }
 
 .bookBox {
