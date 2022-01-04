@@ -13,7 +13,8 @@ const readInput = document.querySelector('#read');
 const submitBtn = document.querySelector('.submit');
 
 function addBookToLibrary () {
-    console.log('a');
+    const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value);
+    myLibrary.push(newBook);
 }
 
 submitBtn.addEventListener('click', addBookToLibrary);
