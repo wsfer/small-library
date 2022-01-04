@@ -32,6 +32,11 @@ header, footer {
     background-color: gray;
     padding: 16px;
     border-radius: 16px 0 0 16px;
+    height: 300px;
+    margin-top: 16px;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+    border-bottom: 3px solid black;
 }
 
 .displayBookContainer {
@@ -39,7 +44,7 @@ header, footer {
     flex-wrap: wrap;
     border: 3px solid black;
     margin: 16px;
-    width: 896px;
+    width: 888px;
     padding: 8px;
 }
 
