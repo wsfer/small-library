@@ -34,13 +34,15 @@ header, footer {
 
 .displayBooks {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    align-items: flex-start;
     flex-wrap: wrap;
-    background-color: orange;
+    width: 600px;
 }
 
 .bookBox {
     width: 100px;
     height: 150px;
+    margin: 8px;
     background-color: gray;
 }

@@ -12,7 +12,8 @@ const authorInput = document.querySelector('#author');
 const pagesInput = document.querySelector('#pages');
 const readInput = document.querySelector('#read');
 const submitBtn = document.querySelector('.submit');
-const bookDisplayer = document.querySelector('.displayBooks')
+const bookDisplayer = document.querySelector('.displayBooks');
+const listDisplayer = document.querySelector('#list');
 
 function addBookToLibrary () {
     const newBook = new Book(titleInput.value, authorInput.value, pagesInput.value, readInput.checked);
