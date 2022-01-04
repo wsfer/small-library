@@ -22,6 +22,18 @@ function callBookForm () {
 addNewBookBtn.addEventListener('click', callBookForm);
 
 function addBookToLibrary () {
+    const title = document.querySelector('.titleInput');
+    const author = document.querySelector('.authorInput');
+    const pages = document.querySelector('.pagesInput');
+    const read = document.querySelector('.readInput');
+    const newBook = new Book (title.value, author.value, pages.value, read.checked);
+
+    myLibrary.push(newBook);
+
+    title.value = '';
+    author.value = '';
+    pages.value = '';
+    read.checked = false;
     addBookContainer.removeChild(form);
     addBookContainer.appendChild(addNewBookBtn);
 }
