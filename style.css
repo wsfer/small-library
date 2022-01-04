@@ -20,12 +20,27 @@ header, footer {
 
 .books {
     display: flex;
-    justify-content: center;
-    align-items: space-between;
+    justify-content: space-between;
+    align-items: center;
+    background-color: orange;
 }
 
 .listBooks, .addBook {
-    background-color: orange;
+    background-color: black;
     width: 200px;
-    height: 300px;
+    height: 600px;
+    padding: 16px;
+}
+
+.displayBooks {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: orange;
+}
+
+.bookBox {
+    width: 100px;
+    height: 150px;
+    background-color: gray;
 }
