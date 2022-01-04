@@ -21,7 +21,6 @@ header, footer {
 .books {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     background-color: orange;
     height: 800px;
 }
@@ -37,16 +36,23 @@ header, footer {
 
 .displayBookContainer {
     display: flex;
-    justify-content: left;
-    align-items: flex-start;
     flex-wrap: wrap;
+    border: 3px solid black;
+    margin: 16px;
+    width: 896px;
+    padding: 8px;
 }
 
 .bookBox {
-    width: 100px;
-    height: 150px;
     margin: 8px;
+    width: 200px;
+    height: 200px;
     background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid black;
 }
 
 .formContainer {

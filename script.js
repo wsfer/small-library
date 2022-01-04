@@ -1,4 +1,6 @@
 let myLibrary = [];
+let displayedBooks = [];
+const form = createForm();
 
 function Book (title, author, pages, read) {
     this.title = title;
@@ -7,10 +9,7 @@ function Book (title, author, pages, read) {
     this.read = read;
 }
 
-const form = createForm();
-
-const bookDisplayer = document.querySelector('.displayBooks');
-const listDisplayer = document.querySelector('#list');
+const bookDisplayer = document.querySelector('.displayBookContainer');
 const addBookContainer = document.querySelector('.addBookContainer');
 const addNewBookBtn = document.querySelector('.newBook');
 
@@ -29,6 +28,7 @@ function addBookToLibrary () {
     const newBook = new Book (title.value, author.value, pages.value, read.checked);
 
     myLibrary.push(newBook);
+    displayBooks();
 
     title.value = '';
     author.value = '';
@@ -36,6 +36,30 @@ function addBookToLibrary () {
     read.checked = false;
     addBookContainer.removeChild(form);
     addBookContainer.appendChild(addNewBookBtn);
+}
+
+function displayBooks () {
+    for (let book of myLibrary) {
+        let bookBox = document.createElement('div');
+        let title = document.createElement('p');
+        let author = document.createElement('p');
+        let pages = document.createElement('p');
+        let read = document.createElement('button');
+
+        title.textContent = book.title;
+        author.textContent = book.author;
+        pages.textContent = book.pages;
+        read.textContent = book.read;
+
+        bookBox.appendChild(title);
+        bookBox.appendChild(author);
+        bookBox.appendChild(pages);
+        bookBox.appendChild(read);
+
+        bookBox.classList.add('bookBox');
+        bookDisplayer.appendChild(bookBox);
+    }
+    myLibrary = [];
 }
 
 //This is big...
