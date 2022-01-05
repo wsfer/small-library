@@ -9,10 +9,14 @@ h1 {
 
 a {
     text-decoration: none;
+    margin: 16px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
 }
 
 header, footer {
-    background-color: gray;
+    background-color: orangered;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -21,7 +25,7 @@ header, footer {
 .books {
     display: flex;
     justify-content: space-between;
-    background-color: orange;
+    background-color: orangered;
     height: 800px;
 }
 
@@ -29,21 +33,28 @@ header, footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: gray;
+    background-color: rgb(9, 12, 9);
+    color: orange;
+    background-color:rgb(6, 49, 6);
     padding: 16px;
     border-radius: 16px 0 0 16px;
     height: 300px;
-    margin-top: 16px;
+    margin-top: 32px;
     border-top: 3px solid black;
     border-left: 3px solid black;
     border-bottom: 3px solid black;
 }
 
+.newBook {
+
+}
+
 .displayBookContainer {
     display: flex;
     flex-wrap: wrap;
+    background-color: rgb(6, 49, 6);
     border: 3px solid black;
-    margin: 16px;
+    margin: 32px;
     width: 888px;
     padding: 8px;
 }
