@@ -23,13 +23,14 @@ function addBookToLibrary () {
     const title = document.querySelector('.titleInput');
     const author = document.querySelector('.authorInput');
     const pages = document.querySelector('.pagesInput');
-    let read = document.querySelector('.readInput');
-    if (read.checked === true) {
-        read = "Read!";
+    let readCheckBox = document.querySelector('.readInput');
+    let redStatus = '';
+    if (readCheckBox.checked === true) {
+        readStatus = "Read";
     } else {
-        read = "Not Read";
+        readStatus = "Not Read";
     }
-    const newBook = new Book (title.value, author.value, pages.value, read);
+    const newBook = new Book (title.value, author.value, pages.value, readStatus);
 
     myLibrary.push(newBook);
     displayBooks();
@@ -37,7 +38,7 @@ function addBookToLibrary () {
     title.value = '';
     author.value = '';
     pages.value = '';
-    read.checked = false;
+    readCheckBox.checked = false;
     addBookContainer.removeChild(form);
     addBookContainer.appendChild(addNewBookBtn);
 }
@@ -54,20 +55,38 @@ function displayBooks () {
         let title = document.createElement('p');
         let author = document.createElement('p');
         let pages = document.createElement('p');
-        let read = document.createElement('button');
+        let readStatus = document.createElement('button');
 
         title.textContent = book.title;
         author.textContent = book.author;
         pages.textContent = book.pages;
-        read.textContent = book.read;
+        readStatus.textContent = book.read;
+
+        if (readStatus.textContent === "Read") {
+            readStatus.style.background = "green";
+        } else {
+            readStatus.style.background = "red";
+        }
+
+        readStatus.addEventListener('click', function (e) {changeReadStatus(e.target);});
 
         bookBox.appendChild(title);
         bookBox.appendChild(author);
         bookBox.appendChild(pages);
-        bookBox.appendChild(read);
+        bookBox.appendChild(readStatus);
 
         bookBox.classList.add('bookBox');
         bookDisplayer.appendChild(bookBox);
+    }
+}
+
+function changeReadStatus (button) {
+    if (button.textContent === "Not Read") {
+        button.style.background = "green";
+        button.textContent = "Read";
+    } else {
+        button.style.background = "red";
+        button.textContent = "Not Read";
     }
 }
 
