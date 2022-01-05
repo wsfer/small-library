@@ -1,5 +1,4 @@
 let myLibrary = [];
-let displayedBooks = [];
 const form = createForm();
 
 function Book (title, author, pages, read) {
@@ -38,7 +37,13 @@ function addBookToLibrary () {
     addBookContainer.appendChild(addNewBookBtn);
 }
 
+//Will create the "books" on the page.
 function displayBooks () {
+
+    while (bookDisplayer.firstChild) {
+        bookDisplayer.removeChild(bookDisplayer.firstChild);
+    }
+
     for (let book of myLibrary) {
         let bookBox = document.createElement('div');
         let title = document.createElement('p');
@@ -59,7 +64,6 @@ function displayBooks () {
         bookBox.classList.add('bookBox');
         bookDisplayer.appendChild(bookBox);
     }
-    myLibrary = [];
 }
 
 //This is big...
