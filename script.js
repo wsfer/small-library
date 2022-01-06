@@ -88,6 +88,13 @@ function changeReadStatus (button) {
         button.style.background = "red";
         button.textContent = "Not Read";
     }
+
+    //Also change read atributte inside myLibrary.
+    for (let book of myLibrary) {
+        if (button.parentNode.firstChild.textContent === book.title) {
+            book.read = button.textContent;
+        };
+    }
 }
 
 //This is big...
