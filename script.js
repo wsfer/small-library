@@ -56,6 +56,7 @@ function displayBooks () {
         let author = document.createElement('p');
         let pages = document.createElement('p');
         let readStatus = document.createElement('button');
+        readStatus.classList.add('readStatus');
 
         title.textContent = book.title;
         author.textContent = book.author;
@@ -70,10 +71,10 @@ function displayBooks () {
 
         readStatus.addEventListener('click', function (e) {changeReadStatus(e.target);});
 
+        bookBox.appendChild(readStatus);
         bookBox.appendChild(title);
         bookBox.appendChild(author);
         bookBox.appendChild(pages);
-        bookBox.appendChild(readStatus);
 
         bookBox.classList.add('bookBox');
         bookDisplayer.appendChild(bookBox);
@@ -89,7 +90,7 @@ function changeReadStatus (button) {
         button.textContent = "Not Read";
     }
 
-    //Also change read atributte inside myLibrary.
+    //Also change read property inside myLibrary.
     for (let book of myLibrary) {
         if (button.parentNode.firstChild.textContent === book.title) {
             book.read = button.textContent;
