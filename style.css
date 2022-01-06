@@ -89,10 +89,6 @@ header, footer {
     border: 3px solid black;
 }
 
-.readStatus {
-    margin: 0 200px 0 0;
-}
-
 .formContainer {
     display: flex;
     justify-content: center;
