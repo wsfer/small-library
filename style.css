@@ -5,7 +5,7 @@ html, body {
 
 h1 {
     text-align: center;
-    color: gray;
+    color: goldenrod;
 }
 
 a {
@@ -23,11 +23,21 @@ header, footer {
     justify-content: center;
 }
 
+header {
+    border-bottom: 3px solid black;
+}
+
+footer {
+    border-top: 3px solid black;
+}
+
 .books {
     display: flex;
     justify-content: space-between;
     background-color: gray;
     height: 800px;
+    border-left: 3px solid black;
+    border-right: 3px solid black;
 }
 
 .addBookContainer {
@@ -125,4 +135,12 @@ button:hover {
 
 a:hover {
     color: gold;
+}
+
+.removeBtn button:hover {
+    border-left: 2px solid rgb(9, 12, 9);
+    border-bottom: 2px solid rgb(9, 12, 9);
+    border-top: 0;
+    border-right: 0;
+    background-color: gold;
 }
