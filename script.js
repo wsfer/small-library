@@ -1,11 +1,12 @@
 let myLibrary = [];
 const form = createForm();
 
-function Book (title, author, pages, read) {
+function Book (title, author, pages, read, index) {
     this.title = title;
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.index = index;
 }
 
 const bookDisplayer = document.querySelector('.displayBookContainer');
@@ -30,7 +31,7 @@ function addBookToLibrary () {
     } else {
         readStatus = "Not Read";
     }
-    const newBook = new Book (title.value, author.value, pages.value, readStatus);
+    const newBook = new Book (title.value, author.value, pages.value, readStatus, myLibrary.length);
 
     myLibrary.push(newBook);
     displayBooks();
@@ -71,14 +72,39 @@ function displayBooks () {
 
         readStatus.addEventListener('click', function (e) {changeReadStatus(e.target);});
 
+        let remove = document.createElement('div');
+        remove.classList.add('removeBtn');
+        let removeButton = document.createElement('button');
+        removeButton.textContent = 'X';
+        removeButton.setAttribute('id', book.index);
+        removeButton.addEventListener('click', function (e) {deleteBook(e.target);});
+        remove.appendChild(removeButton);
+
+        bookBox.appendChild(remove);
+        let contentBox = document.createElement('div');
+        contentBox.appendChild(title);
+        contentBox.appendChild(author);
+        contentBox.appendChild(pages);
+        bookBox.appendChild(contentBox);
         bookBox.appendChild(readStatus);
-        bookBox.appendChild(title);
-        bookBox.appendChild(author);
-        bookBox.appendChild(pages);
 
         bookBox.classList.add('bookBox');
         bookDisplayer.appendChild(bookBox);
     }
+}
+
+function deleteBook (button) {
+    myLibrary = myLibrary.filter(function (obj) {
+        if (obj.index == button.id) {
+            return;
+        } else {
+            return obj;
+        }
+    });
+    for (let i = 0 ; i < myLibrary.length ; i++) {
+        myLibrary[i].index = i;
+    }
+    displayBooks();
 }
 
 function changeReadStatus (button) {
@@ -92,7 +118,7 @@ function changeReadStatus (button) {
 
     //Also change read property inside myLibrary.
     for (let book of myLibrary) {
-        if (button.parentNode.firstChild.textContent === book.title) {
+        if (button.parentNode.childNodes[1].firstChild.textContent === book.title) {
             book.read = button.textContent;
         };
     }

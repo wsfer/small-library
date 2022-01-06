@@ -72,7 +72,7 @@ header, footer {
     padding: 8px;
 }
 
-.displayBookContainer button {
+.readStatus  {
     border: 2px solid black;
     border-radius: 12px;
 }
@@ -83,10 +83,26 @@ header, footer {
     height: 200px;
     background-color: gray;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-direction: column;
     border: 3px solid black;
+    padding: 0 0 16px 0;
+}
+
+.removeBtn {
+    display: flex;
+    justify-content: end;
+    width: 200px;
+}
+
+.removeBtn button {
+    border-radius: 0;
+    background-color: red;
+    border-left: 2px solid rgb(9, 12, 9);
+    border-bottom: 2px solid rgb(9, 12, 9);
+    border-top: 0;
+    border-right: 0;
 }
 
 .formContainer {
