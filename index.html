@@ -3,6 +3,8 @@
     <head>
         <title>My Library</title>
         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
         <script src="script.js" defer></script>
     </head>
@@ -23,8 +25,27 @@
             <a href="#">Rules</a>
             <a href="#">Donate</a>
         </nav>
+        <section class="book-form">
+            <div>
+                <label for="title">Title:</label>
+                <input id="title" type="text">
+                <label for="author">Author:</label>
+                <input id="author" type="text">
+                <label for="pages">Pages:</label>
+                <input id="pages" type="text">
+                <label for="read">Read?</label>
+                <input id="read" type="checkbox">
+                <button class="create">Create</button>
+            </div>
+        </section>
         <main>
-            <button class="newBook">New Book</button>
+            <nav class="control-board">
+                <div>
+                    <label for="search">Search for a book</label>
+                    <input id="search" type="text">
+                </div>
+                <button class="new-book">New Book</button>
+            </nav>
             <section class="books"></section>
         </main>
         <footer>

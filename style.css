@@ -11,6 +11,14 @@ body {
     grid-template-rows: 1fr auto 1fr;
 }
 
+/* The hidden form section which is used to create a book object */
+.book-form {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background-color:rgba(22, 26, 22, 0.5);
+}
+
 /* Header section */
 body > header {
     grid-row: 1;
