@@ -1,13 +1,19 @@
-let myLibrary = [];
+let myLibrary = []; //where book objects will be stored
 
-// Code to call and close the hidden book form.
+// Code to control the hidden book form.
+function closeBookForm () {
+    document.querySelector('.book-form').style.display = 'none';
+    document.querySelector('#title').value = '';
+    document.querySelector('#author').value = '';
+    document.querySelector('#pages').value = '';
+    document.querySelector('#read').checked = false;
+}
+
 document.querySelector('.new-book').addEventListener('click', () => {
     document.querySelector('.book-form').style.display = 'flex';
 });
 
-document.querySelector('.close').addEventListener('click', () => {
-    document.querySelector('.book-form').style.display = 'none';
-});
+document.querySelector('.close').addEventListener('click', closeBookForm);
 
 // Book object constructor.
 function Book (title, author, pages, read) {
@@ -32,4 +38,5 @@ function addBookToLibrary () {
         document.querySelector('#pages').value,
         document.querySelector('#read').checked,
     ));
+    closeBookForm();
 }
