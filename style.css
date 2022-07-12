@@ -82,8 +82,8 @@ main > .books {
     display: grid;
     gap: 1rem;
     padding: 1rem;
-    grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
-    grid-auto-rows: 15rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    grid-auto-rows: 18rem;
 }
 
 main > .control-board {
@@ -96,11 +96,43 @@ main > .control-board {
     background-color: #1E3A8A;
     box-shadow: 2px 2px 3px black;
     border-radius: 0 1rem 1rem;
+    display: grid;
+    grid-template-areas: 
+        "title       ."
+        ".           author"
+        "pages       ."
+        "description description"
+        "description description"
+        "description description"
+        "read        delete";
+    grid-template-columns: 1fr 1fr;
 }
 
-.card > h3 + p {
+.card > .book-title {
+    grid-area: title;
+    text-align: center;
+}
+
+.card > .book-author {
     text-align: end;
-    font-size: 0.7rem;
+    font-size: 0.9rem;
+    grid-area: author;
+}
+
+.card > .book-pages {
+    grid-area: pages;
+}
+
+.card > .description {
+    grid-area: description;
+}
+
+.card > .read {
+    grid-area: read;
+}
+
+.card > .delete {
+    grid-area: delete;
 }
 
 /* Footer section */

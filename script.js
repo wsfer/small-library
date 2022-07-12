@@ -62,35 +62,51 @@ for (let i = 0; i < myLibrary.length; i++) {
 function createBookCard (book) {
     let card = document.createElement('div');
     card.classList.add('card');
-    let title = document.createElement('h3');
-    title.textContent = book.title;
-    let author = document.createElement('p');
-    author.textContent = '-' + book.author;
-    let pages = document.createElement('p');
-    pages.textContent = book.pages + ' pages';
-    let read = document.createElement('input');
-    let label = document.createElement('label');
-    label.for = 'read';
-    label.textContent = 'Read ';
-    read.type = 'checkbox';
-    read.id = 'read';
-    read.checked = book.read;
-    card.appendChild(title);
-    card.appendChild(author);
-    card.appendChild(pages);
-    card.appendChild(label);
-    card.appendChild(read);
-    let description = document.createElement('h4');
-    description.textContent = 'Description:';
-    card.appendChild(description);
-    description = document.createElement('p');
-    description.textContent = book.description;
-    card.appendChild(description);
+    createBookInformations(book, card);
+    createBookDescription(book, card);
+    createButtons(book, card);
     document.querySelector('.books').appendChild(card);
 }
 
-function createTrashIcon (parent) {
-    svg = document.createElement('svg');
-    svg.style = 'width:24px;height:24px';
-    svg.viewBox = '0 0 24 24';
+function createBookInformations (book, parent) {
+    let title = document.createElement('h3');
+    title.textContent = book.title;
+    title.classList.add('book-title');
+    parent.appendChild(title);
+
+    let author = document.createElement('p');
+    author.textContent = '-' + book.author;
+    author.classList.add('book-author');
+    parent.appendChild(author);
+
+    let pages = document.createElement('p');
+    pages.textContent = book.pages + ' pages';
+    pages.classList.add('book-pages');
+    parent.appendChild(pages);
+}
+
+function createBookDescription (book, parent) {
+    let description = document.createElement('p');
+    description.textContent = book.description;
+    let title = document.createElement('h4');
+    title.textContent = 'Description:';
+
+    let container = document.createElement('div');
+    container.classList.add('description');
+    container.appendChild(title);
+    container.appendChild(description);
+
+    parent.appendChild(container);
+}
+
+function createButtons (book, parent) {
+    let read = document.createElement('button');
+    read.textContent = book.read;
+    read.classList.add('read');
+    parent.appendChild(read);
+
+    let deleteBook = document.createElement('button');
+    deleteBook.textContent = 'Delete';
+    deleteBook.classList.add('delete');
+    parent.appendChild(deleteBook);
 }
