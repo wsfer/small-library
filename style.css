@@ -44,7 +44,8 @@ body > header {
     grid-row: 1;
     grid-column: span 2;
     color: goldenrod;
-    background-color: #1E3A8A;
+    background-image: linear-gradient(to right,#1E3A8A, goldenrod);
+    box-shadow: 5px 5px 8px black;
     padding: 1rem 3rem;
 }
 
@@ -54,16 +55,27 @@ body > nav {
     grid-column: 1;
     display: flex;
     flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 2rem;
     width: max-content;
+    background-color: #1E3A8A;
+    color: goldenrod;
+}
+
+body > nav > a {
+    color: inherit;
+    font-weight: bold;
 }
 
 /* Main content section */
 body > main {
     grid-row: 2;
     grid-column: 2;
-    min-height: 80vh;
+    min-height: 100vh;
     display: grid;
     grid-template-columns: 1fr auto;
+    background-image: url(images/books.jpg);
+    background-size: cover;
 }
 
 main > .books {
@@ -76,7 +88,6 @@ main > .books {
 
 main > .control-board {
     grid-column: 2;
-    background-color: #1E3A8A;
 }
 
 .books > .card{
@@ -84,7 +95,7 @@ main > .control-board {
     color: goldenrod;
     background-color: #1E3A8A;
     box-shadow: 2px 2px 3px black;
-    border-radius: 1rem;
+    border-radius: 0 1rem 1rem;
 }
 
 .card > h3 + p {
@@ -98,4 +109,18 @@ body > footer {
     grid-column: span 2;
     background-color: #1E3A8A;
     color: goldenrod;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+body > footer a {
+    color: inherit;
+    font-weight: bold;
+}
+
+/* CSS interaction effects */
+a:hover {
+    text-decoration: underline;
 }

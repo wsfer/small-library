@@ -55,6 +55,10 @@ function addBookToLibrary () {
     }
 }
 
+for (let i = 0; i < myLibrary.length; i++) {
+    createBookCard(myLibrary[i]);
+}
+
 function createBookCard (book) {
     let card = document.createElement('div');
     card.classList.add('card');
@@ -85,6 +89,8 @@ function createBookCard (book) {
     document.querySelector('.books').appendChild(card);
 }
 
-for (let i = 0; i < myLibrary.length; i++) {
-    createBookCard(myLibrary[i]);
+function createTrashIcon (parent) {
+    svg = document.createElement('svg');
+    svg.style = 'width:24px;height:24px';
+    svg.viewBox = '0 0 24 24';
 }
