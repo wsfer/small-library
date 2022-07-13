@@ -117,5 +117,15 @@ function createButtons (book, parent) {
     let deleteBook = document.createElement('button');
     deleteBook.textContent = 'Delete';
     deleteBook.classList.add('delete');
+    deleteBook.addEventListener('click', () => {
+        /* This will delete the card element and decrement
+        the index of all next cards by 1 */
+        const cards = document.querySelectorAll('.card');
+        myLibrary.splice(parent.objIndex, 1);
+        for (let i=parent.objIndex+1; i < cards.length; i++) {
+            cards[i].objIndex--;
+        }
+        parent.parentElement.removeChild(parent);
+    })
     parent.appendChild(deleteBook);
 }
