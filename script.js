@@ -1,8 +1,8 @@
 let myLibrary = [
-    {title: "Book", author: "Author", pages: 342, read: false, description: "aaaa"},
-    {title: "Paper", author: "Nothing", pages: 46, read: false, description: "stopped on page 89"},
-    {title: "Nothing", author: "Hello", pages: 123, read: true, description: "Null"},
-    {title: "Random", author: "Name", pages: 856, read: false, description: "a book"}
+    new Book('Book', 'Author', 342, false, 'aaaaaaaa'),
+    new Book('Paper', 'Nothing', 46, true, 'Stopped on page 86'),
+    new Book('Nothing', 'Hello', 123, true, 'Null'),
+    new Book('Random', 'Name', 856, true, 'A book')
 ]; //where book objects will be stored
 
 // Code to control the hidden book form.
@@ -31,7 +31,7 @@ function Book (title, author, pages, read, description) {
 }
 /*** Using prototype will avoid javascript from copying the
 same function for each object, reducing memory usage ***/
-Book.prototype.changeReadStatus = () => {
+Book.prototype.changeReadStatus = function () {
     this.read = !(this.read);
 }
 
@@ -40,13 +40,14 @@ Book.prototype.changeReadStatus = () => {
 document.querySelector('.create').addEventListener('click', addBookToLibrary);
 
 function addBookToLibrary () {
-    myLibrary.push(new Book(
+    let newBook = new Book(
         document.querySelector('#title').value,
         document.querySelector('#author').value,
         document.querySelector('#pages').value,
         document.querySelector('#read').checked,
         document.querySelector('#description').value
-    ));
+    );
+    myLibrary.push(newBook);
     closeBookForm();
     for (let i = 0; i < myLibrary.length; i++) {
         if (i >= document.querySelectorAll('.card').length) {
@@ -62,6 +63,10 @@ for (let i = 0; i < myLibrary.length; i++) {
 function createBookCard (book) {
     let card = document.createElement('div');
     card.classList.add('card');
+    
+    // This will associate the card with book object.
+    card.objIndex = myLibrary.indexOf(book);
+
     createBookInformations(book, card);
     createBookDescription(book, card);
     createButtons(book, card);
@@ -103,6 +108,10 @@ function createButtons (book, parent) {
     let read = document.createElement('button');
     read.textContent = book.read;
     read.classList.add('read');
+    read.addEventListener('click', () => {
+        myLibrary[parent.objIndex].changeReadStatus();
+        read.textContent = book.read;
+    });
     parent.appendChild(read);
 
     let deleteBook = document.createElement('button');
