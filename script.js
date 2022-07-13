@@ -113,9 +113,18 @@ function createButtons (book, parent) {
         read.textContent = book.read;
     });
     parent.appendChild(read);
-
-    let deleteBook = document.createElement('button');
-    deleteBook.textContent = 'Delete';
+    
+    /* this will create this svg:
+    <svg viewBox="0 0 24 24">
+        <path fill="currentColor" d="M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z" />
+    </svg>
+    */
+    let deleteBook = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    deleteBook.setAttribute('viewBox', '0 0 24 24');
+    let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('fill', 'currentColor');
+    path.setAttribute('d', 'M19,4H15.5L14.5,3H9.5L8.5,4H5V6H19M6,19A2,2 0 0,0 8,21H16A2,2 0 0,0 18,19V7H6V19Z');
+    deleteBook.appendChild(path);
     deleteBook.classList.add('delete');
     deleteBook.addEventListener('click', () => {
         /* This will delete the card element and decrement
