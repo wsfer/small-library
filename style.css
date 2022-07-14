@@ -178,6 +178,7 @@ main > .control-board > button {
     text-align: end;
     font-size: 0.9rem;
     grid-area: author;
+    color: #18181B;
 }
 
 .card > .book-pages {
@@ -186,10 +187,17 @@ main > .control-board > button {
 
 .card > .description {
     grid-area: description;
+    color: #18181B;
 }
 
 .card > .read {
     grid-area: read;
+    align-self: center;
+    cursor: pointer;
+    padding: 0.35rem;
+    border-radius: 0.35rem;
+    font-weight: bold;
+    width: max-content;
 }
 
 .card > .delete {
@@ -209,6 +217,10 @@ main > .control-board > button {
 .card:hover {
     top: 2px;
     background-color: #1E3A8A;
+}
+
+.card > .read:hover {
+    background-color: goldenrod;
 }
 
 /* Footer section */

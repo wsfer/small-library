@@ -1,9 +1,4 @@
-let myLibrary = [
-    new Book('Book', 'Author', 342, false, 'aaaaaaaa'),
-    new Book('Paper', 'Nothing', 46, true, 'Stopped on page 86'),
-    new Book('Nothing', 'Hello', 123, true, 'Null'),
-    new Book('Random', 'Name', 856, true, 'A book')
-]; //where book objects will be stored
+let myLibrary = [new Book('Book of Nothing', 'Anyone', 342, false, 'Stopped on page 86')]; //where book objects will be stored
 
 // Code to control the hidden book form.
 function closeBookForm () {
@@ -105,12 +100,24 @@ function createBookDescription (book, parent) {
 }
 
 function createButtons (book, parent) {
-    let read = document.createElement('button');
-    read.textContent = book.read;
+    let read = document.createElement('p');
+    if (book.read) {
+        read.textContent = 'Finished ✓';
+        read.style.color = 'green';
+    } else {
+        read.textContent = 'Not Finished ✖';
+        read.style.color = 'red';   
+    }
     read.classList.add('read');
     read.addEventListener('click', () => {
         myLibrary[parent.objIndex].changeReadStatus();
-        read.textContent = book.read;
+        if (book.read) {
+            read.textContent = 'Finished ✓';
+            read.style.color = 'green';
+        } else {
+            read.textContent = 'Not Finished ✖';
+            read.style.color = 'red';   
+        }
     });
     parent.appendChild(read);
     
